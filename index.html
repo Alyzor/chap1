@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SignUp</title>
+    <link rel="stylesheet" type="text/css" href="/style.css" />
+  </head>
+  <body>
+    <div class="bBox" id="main">
+      <div class="LogBox">
+        <form action="/login" method="post">
+          <h1>Log in</h1>
+          <div class="textbox">
+            <input
+              type="email"
+              name="email"
+              maxlength="30"
+              placeholder="Email"
+              required=""
+            />
+          </div>
+          <div class="textbox">
+            <input
+              type="password"
+              name="password"
+              placeholder="Password"
+              maxlength="12"
+              required=""
+            />
+          </div>
+          <div class="button">
+            <button class="btnSign" type="submit">Login</button>
+          </div>
+        </form>
+      </div>
+      <div class="SignBox" id="signBox">
+        <form action="/signup" method="post">
+          <h1>Sign up</h1>
+          <div class="textbox">
+            <input 
+            type="text" 
+            name="name" 
+            maxlength="50" 
+            placeholder="Name"
+            required=""
+            />
+          </div>
+          <div class="textbox">
+            <input
+              type="email"
+              name="email"
+              maxlength="30"
+              placeholder="Email"
+              required=""
+            />
+          </div>
+          <div class="usedEmail" id="useMail">
+            <label for="errorEmail">Email already in use! Please Login.</label>
+          </div>
+          <input
+            type="password"
+            name="password"
+            placeholder="Password"
+            maxlength="12"
+            required=""
+          />
+          <div class="button">
+            <button class="btnSign" type="submit">Sign Up</button>
+          </div>
+        </form>
+      </div>
+      <div class="overlay-bBox">
+        <div class="overlay">
+          <div class="logInfo">
+            <h1>Login</h1>
+            <p>
+              Welcome back!<br />
+              Please input your credentials. If you're new to this website
+              please create a new account using the button found below!
+            </p>
+            <br />
+            <button id="sign-up" class="btnSign">Sign Up</button>
+          </div>
+          <div class="signInfo">
+            <h1>Sign Up</h1>
+            <p>
+              Don't have an account yet? <br />
+              Create one! In order to access our information, please, create an
+              account, or log in using the button found below!
+            </p>
+            <br />
+            <button id="log-in" class="btnSign">Login</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script type="text/javascript">
+      const signUpButton = document.getElementById("sign-up");
+      const logInButton = document.getElementById("log-in");
+      const main = document.getElementById("main");
+
+      signUpButton.addEventListener("click", () => {
+        main.classList.add("logPanelActive");
+      });
+      logInButton.addEventListener("click", () => {
+        main.classList.remove("logPanelActive");
+      });
+
+      function checkMail(bool)
+      {
+          if (bool==true){
+            main.classList.add("isUsed")
+          }
+      }
+    </script>
+  </body>
+</html>
